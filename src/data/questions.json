@@ -1,0 +1,108 @@
+[
+   {
+     "id": 1,
+     "text": {
+       "en": "Which Dota character reminds you most of your teammate's typical mom?",
+       "ru": "Какой персонаж из Доты больше всего напоминает типичную мать твоего тиммейта?"
+     },
+     "options": [
+       { "id": "a", "text": { "en": "Queen of Pain", "ru": "Queen of Pain" } },
+       { "id": "b", "text": { "en": "Crystal Maiden", "ru": "Crystal Maiden" } },
+       { "id": "c", "text": { "en": "Broodmother", "ru": "Broodmother" } },
+       { "id": "d", "text": { "en": "Pudge ", "ru": "Pudge" } }
+     ]
+   },
+   {
+     "id": 2,
+     "text": {
+       "en": "Your teammate's mom saw the obscenities you wrote about her in chat. What kind of reaction would you like to get?",
+       "ru": "Мама твоего тиммейта увидела непристойности, которые ты написал о ней в чате. Какую реакцию ты бы хотел получить?"
+     },
+     "options": [
+       { "id": "a", "text": { "en": "Are you really allowing such things to be said about your mother? There is nothing sacred left in this generation!", "ru": "Ты позволяешь писать такое о своей матери? Ничего святого у этого поколения не осталось!" } },
+       { "id": "b", "text": { "en": "That's it — no computer for a month!", "ru": "Всё, месяц без компьютера" } },
+       { "id": "c", "text": { "en": "Why are you ruining the game? I would say that too", "ru": "Ну а чё ты руинишь? Я бы тоже так сказала" } },
+       { "id": "d", "text": { "en": "Are his intentions serious? 🙂", "ru": "Его намерения серьёзны? 🙂" } }
+     ]
+   },
+   {
+     "id": 3,
+     "text": {
+       "en": "How many moms have been hurt by you in chat throughout your gamer journey",
+       "ru": "Сколько мам пострадали от тебя в чате за всё время твоего геймерского пути"
+     },
+     "options": [
+       { "id": "a", "text": { "en": "Not a single one", "ru": "Ни одной" } },
+       { "id": "b", "text": { "en": "I confess, I've had a couple", "ru": "Каюсь, парочку было" } },
+       { "id": "c", "text": { "en": "More than the Alchemist's gold", "ru": "Больше, чем золота у Алхимика" } },
+       { "id": "d", "text": { "en": "I stopped counting a long time ago", "ru": "Я уже давным-давно перестал считать…" } }
+     ]
+   },
+   {
+     "id": 4,
+     "text": {
+       "en": "In which game's community do you feel you are among your own",
+       "ru": "В комьюнити какой игры ты чувствуешь себя среди своих"
+     },
+     "options": [
+       { "id": "a", "text": { "en": "Valorant — surrounded by kind and helpful players, where everyone is supportive, I can be myself!", "ru": "Valorant — в окружении добрых и отзывчивых игроков, где каждый готов поддержать, я могу быть собой!" } },
+       { "id": "b", "text": { "en": "Counter Strike — there's a sense that I'm in my place, even when it's toxic around me", "ru": "Counter Strike — есть ощущение, что я на своём месте, даже когда вокруг токсично" } },
+       { "id": "c", "text": { "en": "Dota 2 — I love to speak my mind", "ru": "Dota 2 — люблю говорить всё, что думаю" } },
+       { "id": "d", "text": { "en": "Any place where there is absolute chaos in the chat and no one cares about family values", "ru": "Любая, где можно устроить абсолютный хаос в чате и никого не волнуют семейные ценности" } }
+     ]
+   },
+   {
+     "id": 5,
+     "text": {
+       "en": "How do you react when someone desecrates someone else's mother's honor in a chat room?",
+       "ru": "Как ты реагируешь, когда кто-то оскверняет честь чужой матери в чате"
+     },
+     "options": [
+       { "id": "a", "text": { "en": "Bruh… Condemn", "ru": "Чееел… Осуждаю" } },
+       { "id": "b", "text": { "en": "I've got farming to do — sympathy's on cooldown", "ru": "Мне нужно фармить, cочувствие в КД" } },
+       { "id": "c", "text": { "en": "I sympathize… but hey, at least it's not my mom today", "ru": "Сочувствую, но хотя бы мою сегодня не трогают" } },
+       { "id": "d", "text": { "en": "Remind him his mom's been through the same", "ru": "Напоминаю, что его мамаша тоже через это проходила" } }
+     ]
+   },
+   {
+     "id": 6,
+     "text": {
+       "en": "Which item gives you the best fat gain?",
+       "ru": "Собираясь в жир, какому предмету ты отдал бы предпочтение?"
+     },
+     "options": [
+       { "id": "a", "text": { "en": "Heart of Tarrasque", "ru": "Heart of Tarrasque" } },
+       { "id": "b", "text": { "en": "Assault Cuirass", "ru": "Assault Cuirass" } },
+       { "id": "c", "text": { "en": "Crimson Guard", "ru": "Crimson Guard" } },
+       { "id": "d", "text": { "en": "Any item from a teammate's mom", "ru": "Любая шмотка мамки тиммейта" } },
+       { "id": "e", "text": { "en": "Support — spending the gold on wards", "ru": "Саппорт — трачу голду на варды" } }
+     ]
+   },
+   {
+     "id": 7,
+     "text": {
+       "en": "You wrote some mean things about your teammate's mom in a fit of anger. Will you apologize if you find out she read it?",
+       "ru": "Ты написал гадости про маму тиммейта в порыве злости. Извинишься ли ты, узнав, что она это прочитала?"
+     },
+     "options": [
+       { "id": "a", "text": { "en": "I’d never stoop so low — not my style", "ru": "Я никогда не позволяю себе подобные высказывания" } },
+       { "id": "b", "text": { "en": "In a second! That was an unfortunate figure of speech", "ru": "В ту же секунду! Это была неудачная фигура речи" } },
+       { "id": "c", "text": { "en": "No way — if it were him, he wouldn’t say sorry either", "ru": "Нет, потому что тиммейт на моём месте не стал бы извиняться" } },
+       { "id": "d", "text": { "en": "She should apologize to me for raising such a shameless feeder", "ru": "Пусть извинится передо мной за то, что родила такого криворукого лузера" } }
+     ]
+   },
+   {
+     "id": 8,
+     "text": {
+       "en": "How serious do you think your diagnosis of motherf*cker is?",
+       "ru": "Как ты считаешь, насколько серьезен твой диагноз мамкоёба?"
+     },
+     "options": [
+       { "id": "a", "text": { "en": "Asymptomatic", "ru": "Симптомы не наблюдаются" } },
+       { "id": "b", "text": { "en": "I can safely do without motherf*cking for a long time", "ru": "Могу спокойно долгое время обходиться без мамкоёбства" } },
+       { "id": "c", "text": { "en": "Every teammate's mistake makes me reach for the sacred keys", "ru": "Каждый косяк тиммейта заставляет меня тянуться к заветным клавишам" } },
+       { "id": "d", "text": { "en": "Oh, if only Apex had a chat…", "ru": "Ох, если бы в Apex был чат…" } }
+     ]
+   }
+ ]
+ 

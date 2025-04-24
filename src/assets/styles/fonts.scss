@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Montserrat';
+  src:
+    local('Montserrat Black'),
+    url(../fonts/Montserrat/Montserrat-Black.woff2) format('woff2'),
+    url(../fonts/Montserrat/Montserrat-Black.woff) format('woff');
+  font-style: normal;
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'CeraPro';
+  src:
+    local('CeraPro Regular'),
+    url(../fonts/CeraPro/CeraProRegular.woff2) format('woff2'),
+    url(../fonts/CeraPro/CeraProRegular.woff) format('woff');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+   font-family: 'CeraPro';
+   src:
+     local('CeraPro Medium'),
+     url(../fonts/CeraPro/CeraProMediumRegular.woff2) format('woff2'),
+     url(../fonts/CeraPro/CeraProMediumRegular.woff) format('woff');
+   font-style: normal;
+   font-weight: 500;
+ }
+
+ @font-face {
+   font-family: 'CeraPro';
+   src:
+     local('CeraPro Black'),
+     url(../fonts/CeraPro/CeraProBlackRegular.woff2) format('woff2'),
+     url(../fonts/CeraPro/CeraProBlackRegular.woff) format('woff');
+   font-style: normal;
+   font-weight: 900;
+ }
+
+ @font-face {
+   font-family: 'HelveticaNeueCyr';
+   src:
+     local('HelveticaNeueCyr Roman'),
+     url(../fonts/HelveticaNeueCyr/HelveticaNeueCyr-Roman.woff2) format('woff2'),
+     url(../fonts/HelveticaNeueCyr/HelveticaNeueCyr-Roman.woff) format('woff');
+   font-style: normal;
+   font-weight: 400;
+ }
+
+
+

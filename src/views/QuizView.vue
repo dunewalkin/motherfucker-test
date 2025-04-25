@@ -212,5 +212,4 @@ function back() {
          margin-bottom: 2rem;
       }
    }
-   
 </style>

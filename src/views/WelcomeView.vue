@@ -84,5 +84,6 @@ function startQuiz() {
          @include flexbox(column, center, center, 0.62rem);
       }
    }
+
  </style>
  

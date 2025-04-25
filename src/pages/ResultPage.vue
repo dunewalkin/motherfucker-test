@@ -1,130 +1,22 @@
-<!-- <script setup>
-import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { useQuizStore } from '@/stores/quiz'
-import { useRoute, useRouter } from 'vue-router'
-import results from '@/data/results.json'
-
-const quizStore = useQuizStore()
-const { locale } = useI18n()
-const route  = useRoute()
-const router = useRouter()
-
-const answers = computed(() => quizStore.answers)
-
-function getResultKey(ans) {
-  const dTargets  = [2,3,6,7,8]
-  const bcTargets = [3,4,7]
-  const aTargets  = [3,4,7,8]
-
-  const dCount  = dTargets.filter(i => ans[i-1] === 'd').length
-  const bcCount = bcTargets.filter(i => ['b','c'].includes(ans[i-1])).length
-  const aCount  = aTargets.filter(i => ans[i-1] === 'a').length
-
-  if (dCount >= 4) return 'result1'
-  if (dCount === 3) return 'result2'
-  if (dCount === 2) return 'result3'
-  if (bcCount >= 2) return 'result4'
-  if (aCount >= 3) return 'result5'
-  if (aCount === 2) return 'result6'
-  return 'fallback'
-}
-
-const computedKey = computed(() => getResultKey(answers.value))
-
-const resultKey = computed(() =>
-  typeof route.query.type === 'string'
-    ? route.query.type
-    : computedKey.value
-)
-
-const resultLang = computed(() =>
-  typeof route.query.lang === 'string'
-    ? route.query.lang
-    : locale.value
-)
-
-const result = computed(() => {
-  const key = resultKey.value
-  const lang = resultLang.value
-  return (results[key]?.[lang] ?? results[key]?.en) || results.fallback.en
-})
-
-async function copyResultLink() {
-   const url = window.location.origin + router.resolve({
-   name: 'results', 
-   query: { type: resultKey.value, lang: resultLang.value } 
-   }).href
-
-   await navigator.clipboard.writeText(url)
-   alert('Ссылка скопирована!')
-}
-
-
-</script> -->
-
 <script setup>
-
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 import { useQuizStore } from '@/stores/quiz'
-import { useRoute, useRouter } from 'vue-router'
 import results from '@/data/results.json'
 
 const quizStore = useQuizStore()
-const { locale } = useI18n()
-const route  = useRoute()
-const router = useRouter()
+const route = useRoute()
 
-const answers = computed(() => quizStore.answers)
-
-function getResultKey(ans) {
-  const dTargets  = [2,3,6,7,8]
-  const bcTargets = [3,4,7]
-  const aTargets  = [3,4,7,8]
-
-  const dCount  = dTargets.filter(i => ans[i-1] === 'd').length
-  const bcCount = bcTargets.filter(i => ['b','c'].includes(ans[i-1])).length
-  const aCount  = aTargets.filter(i => ans[i-1] === 'a').length
-
-  if (dCount >= 4) return 'result1'
-  if (dCount === 3) return 'result2'
-  if (dCount === 2) return 'result3'
-  if (bcCount >= 2) return 'result4'
-  if (aCount >= 3) return 'result5'
-  if (aCount === 2) return 'result6'
-  return 'fallback'
-}
-
-const computedKey = computed(() => getResultKey(answers.value))
-
-const resultKey = computed(() =>
-  typeof route.query.type === 'string'
-    ? route.query.type
-    : computedKey.value
-)
-
-const resultLang = computed(() =>
-  typeof route.query.lang === 'string'
-    ? route.query.lang
-    : locale.value
-)
+const resultKey = computed(() => route.query.type || 'fallback')
+const resultLang = computed(() => route.query.lang || 'en')
 
 const result = computed(() => {
   const key = resultKey.value
   const lang = resultLang.value
-  return (results[key]?.[lang] ?? results[key]?.en) || results.fallback.en
-})
-import { defineProps } from 'vue'
-
-const props = defineProps({
-  type: String,
-  lang: String,
+  return results[key]?.[lang] || results[key]?.en || results.fallback.en
 })
 
-const resultText = computed(() => {
-  return `Result for type: ${props.type}, language: ${props.lang}`
-})
+const answers = computed(() => quizStore.answers)
 </script>
 
 <template>

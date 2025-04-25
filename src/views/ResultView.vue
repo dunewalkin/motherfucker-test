@@ -70,10 +70,10 @@ const result = computed(() => {
 async function copyResultLink() {
   const url = window.location.origin + 
     router.resolve({
-      name: 'results', 
+      name: 'results',
       query: { 
-        type: resultKey.value,  
-        lang: resultLang.value  
+        type: resultKey.value,
+        lang: resultLang.value 
       }
     }).href;
 

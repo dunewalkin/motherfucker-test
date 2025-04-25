@@ -12,8 +12,8 @@
   font-family: 'CeraPro';
   src:
     local('CeraPro Regular'),
-    url(../fonts/CeraPro/CeraProRegular.woff2) format('woff2'),
-    url(../fonts/CeraPro/CeraProRegular.woff) format('woff');
+    url(../fonts/CeraPro/CeraPro-Regular.woff2) format('woff2'),
+    url(../fonts/CeraPro/CeraPro-Regular.woff) format('woff');
   font-style: normal;
   font-weight: 400;
 }
@@ -22,8 +22,8 @@
    font-family: 'CeraPro';
    src:
      local('CeraPro Medium'),
-     url(../fonts/CeraPro/CeraProMediumRegular.woff2) format('woff2'),
-     url(../fonts/CeraPro/CeraProMediumRegular.woff) format('woff');
+     url(../fonts/CeraPro/CeraPro-Medium.woff2) format('woff2'),
+     url(../fonts/CeraPro/CeraPro-Medium.woff) format('woff');
    font-style: normal;
    font-weight: 500;
  }
@@ -32,8 +32,8 @@
    font-family: 'CeraPro';
    src:
      local('CeraPro Black'),
-     url(../fonts/CeraPro/CeraProBlackRegular.woff2) format('woff2'),
-     url(../fonts/CeraPro/CeraProBlackRegular.woff) format('woff');
+     url(../fonts/CeraPro/CeraPro-Black.woff2) format('woff2'),
+     url(../fonts/CeraPro/CeraPro-Black.woff) format('woff');
    font-style: normal;
    font-weight: 900;
  }

@@ -1,9 +1,6 @@
 {
    "welcome": {
-     "title": "WHAT TYPE OF MOTHERFUCKER ARE YOU?",
+     "title": "WHAT TYPE OF MOTHER&shy;F*CKER ARE YOU?",
      "placeholder": "Tell me your name, rookie"
-   },
-   "quiz": {
-     "question": "Question"
    }
- }
+}

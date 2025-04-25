@@ -2,22 +2,24 @@
    {
      "id": 1,
      "text": {
-       "en": "Which Dota character reminds you most of your teammate's typical mom?",
-       "ru": "Какой персонаж из Доты больше всего напоминает типичную мать твоего тиммейта?"
+       "en": "Which <span class=\"accent\">Dota</span> character reminds you most of your teammate's typical <span class=\"accent\">mom</span>?",
+       "ru": "Какой персонаж из <span class=\"accent\">Доты</span> больше всего напоминает типичную <span class=\"accent\">мать</span> твоего тиммейта?"
      },
+     "image": "/images/quiz-image-1.webp",
      "options": [
        { "id": "a", "text": { "en": "Queen of Pain", "ru": "Queen of Pain" } },
        { "id": "b", "text": { "en": "Crystal Maiden", "ru": "Crystal Maiden" } },
        { "id": "c", "text": { "en": "Broodmother", "ru": "Broodmother" } },
-       { "id": "d", "text": { "en": "Pudge ", "ru": "Pudge" } }
+       { "id": "d", "text": { "en": "Pudge", "ru": "Pudge" } }
      ]
    },
    {
      "id": 2,
      "text": {
-       "en": "Your teammate's mom saw the obscenities you wrote about her in chat. What kind of reaction would you like to get?",
-       "ru": "Мама твоего тиммейта увидела непристойности, которые ты написал о ней в чате. Какую реакцию ты бы хотел получить?"
+       "en": "Your teammate's mom saw the <span class=\"accent\">obscenities</span> you wrote about her in chat. What kind of reaction would you like to get?",
+       "ru": "Мама твоего тиммейта увидела непристойности, которые ты написал о ней в чате. Какую <span class=\"accent\">реакцию</span> ты бы хотел получить?"
      },
+     "image": "/images/quiz-image-2.webp",
      "options": [
        { "id": "a", "text": { "en": "Are you really allowing such things to be said about your mother? There is nothing sacred left in this generation!", "ru": "Ты позволяешь писать такое о своей матери? Ничего святого у этого поколения не осталось!" } },
        { "id": "b", "text": { "en": "That's it — no computer for a month!", "ru": "Всё, месяц без компьютера" } },
@@ -28,9 +30,10 @@
    {
      "id": 3,
      "text": {
-       "en": "How many moms have been hurt by you in chat throughout your gamer journey",
-       "ru": "Сколько мам пострадали от тебя в чате за всё время твоего геймерского пути"
+       "en": "How many <span class=\"accent\">moms</span> have been hurt by you in chat throughout your gamer journey?",
+       "ru": "Сколько <span class=\"accent\">мам</span> пострадали от тебя в чате за всё время твоего геймерского пути?"
      },
+     "image": "/images/quiz-image-3.webp",
      "options": [
        { "id": "a", "text": { "en": "Not a single one", "ru": "Ни одной" } },
        { "id": "b", "text": { "en": "I confess, I've had a couple", "ru": "Каюсь, парочку было" } },
@@ -41,9 +44,10 @@
    {
      "id": 4,
      "text": {
-       "en": "In which game's community do you feel you are among your own",
-       "ru": "В комьюнити какой игры ты чувствуешь себя среди своих"
+       "en": "In which <span class=\"accent\">game's community</span> do you feel you are among your own?",
+       "ru": "В комьюнити какой игры ты чувствуешь себя среди <span class=\"accent\">своих</span>?"
      },
+     "image": "/images/quiz-image-4.webp",
      "options": [
        { "id": "a", "text": { "en": "Valorant — surrounded by kind and helpful players, where everyone is supportive, I can be myself!", "ru": "Valorant — в окружении добрых и отзывчивых игроков, где каждый готов поддержать, я могу быть собой!" } },
        { "id": "b", "text": { "en": "Counter Strike — there's a sense that I'm in my place, even when it's toxic around me", "ru": "Counter Strike — есть ощущение, что я на своём месте, даже когда вокруг токсично" } },
@@ -54,9 +58,10 @@
    {
      "id": 5,
      "text": {
-       "en": "How do you react when someone desecrates someone else's mother's honor in a chat room?",
-       "ru": "Как ты реагируешь, когда кто-то оскверняет честь чужой матери в чате"
+       "en": "How do you react when someone <span class=\"accent\">desecrates</span> someone else's mother's honor in a chat room?",
+       "ru": "Как ты реагируешь, когда кто-то <span class=\"accent\">оскверняет</span> честь чужой матери в чате?"
      },
+     "image": "/images/quiz-image-5.webp",
      "options": [
        { "id": "a", "text": { "en": "Bruh… Condemn", "ru": "Чееел… Осуждаю" } },
        { "id": "b", "text": { "en": "I've got farming to do — sympathy's on cooldown", "ru": "Мне нужно фармить, cочувствие в КД" } },
@@ -67,9 +72,10 @@
    {
      "id": 6,
      "text": {
-       "en": "Which item gives you the best fat gain?",
-       "ru": "Собираясь в жир, какому предмету ты отдал бы предпочтение?"
+       "en": "Which item gives you the best <span class=\"accent\">fat gain</span>?",
+       "ru": "Собираясь в жир, какому предмету ты бы отдал предпочтение для <span class=\"accent\">жирного фарма</span>?"
      },
+     "image": "/images/quiz-image-6.webp",
      "options": [
        { "id": "a", "text": { "en": "Heart of Tarrasque", "ru": "Heart of Tarrasque" } },
        { "id": "b", "text": { "en": "Assault Cuirass", "ru": "Assault Cuirass" } },
@@ -81,9 +87,10 @@
    {
      "id": 7,
      "text": {
-       "en": "You wrote some mean things about your teammate's mom in a fit of anger. Will you apologize if you find out she read it?",
-       "ru": "Ты написал гадости про маму тиммейта в порыве злости. Извинишься ли ты, узнав, что она это прочитала?"
+       "en": "You wrote some <span class=\"accent\">mean things</span> about your teammate's mom in a fit of anger. Will you apologize if you find out she read it?",
+       "ru": "Ты написал <span class=\"accent\">гадости</span> про маму тиммейта в порыве злости. Извинишься ли ты, узнав, что она это прочитала?"
      },
+     "image": "/images/quiz-image-7.webp",
      "options": [
        { "id": "a", "text": { "en": "I’d never stoop so low — not my style", "ru": "Я никогда не позволяю себе подобные высказывания" } },
        { "id": "b", "text": { "en": "In a second! That was an unfortunate figure of speech", "ru": "В ту же секунду! Это была неудачная фигура речи" } },
@@ -94,9 +101,10 @@
    {
      "id": 8,
      "text": {
-       "en": "How serious do you think your diagnosis of motherf*cker is?",
-       "ru": "Как ты считаешь, насколько серьезен твой диагноз мамкоёба?"
+       "en": "How serious do you think your <span class=\"accent\">diagnosis of motherf*cker</span> is?",
+       "ru": "Как ты считаешь, насколько серьёзен твой <span class=\"accent\">диагноз мамкоёба</span>?"
      },
+     "image": "/images/quiz-image-8.webp",
      "options": [
        { "id": "a", "text": { "en": "Asymptomatic", "ru": "Симптомы не наблюдаются" } },
        { "id": "b", "text": { "en": "I can safely do without motherf*cking for a long time", "ru": "Могу спокойно долгое время обходиться без мамкоёбства" } },
@@ -105,4 +113,5 @@
      ]
    }
  ]
+ 
  

@@ -1,0 +1,33 @@
+{
+   "result1": {
+     "en": "General of the <span class=\"accent\">mother&shy;f*ckers army!</span><br>Get your keyboard ready and attack",
+     "ru": "Генерал <span class=\"accent\">армии мамко&shy;ёбов!</span><br>Приготовь клавиатуру и в атаку"
+   },
+   "result2": {
+     "en": "<span class=\"accent\">Certified mother&shy;f*cker!</span><br>You are ready to f*ck mom in chat even she is beige",
+     "ru": "<span class=\"accent\">Сертифицированный мамко&shy;ёб!</span><br>Без страха. Без сомнений. Без ума от чужих мам."
+   },
+   "result3": {
+     "en": "You are a <span class=\"accent\">real mother&shy;f*ucker!</span><br>Dr.Dre has already bought your merch",
+     "ru": "Ты <span class=\"accent\">настоящий уб&shy;людок!</span><br>Dr.Dre уже купил твой мерч"
+   },
+   "result4": {
+     "en": "<span class=\"accent\">Match&shy;making schoolboy</span><br>The chat is the only place you've ever had sex",
+     "ru": "<span class=\"accent\">Школьник из матч&shy;мейкинга</span><br>Чат — это единственное место, где у тебя был секс"
+   },
+   "result5": {
+     "en": "Congratulations, bro!<br>You are <span class=\"accent\">mommy's&shy; boy</span><br>Wear this title and under&shy;pants proudly",
+     "ru": "Поздравляю, бро!<br>Ты <span class=\"accent\">мамень&shy;кин сынок</span><br>Носи этот титул и под&shy;штанники c гордостью"
+   },
+   "result6": {
+     "en": "<span class=\"accent\">Giga&shy;Son</span><br>You respect mothers even more than you respect waking up at 5 a.m.",
+     "ru": "<span class=\"accent\">Гига&shy;сын</span><br>Ты уважаешь матерей даже больше, чем просыпаться в 5 утра"
+   },
+   "fallback": {
+     "en": "No clear result.<br>You are... <span class=\"accent\">unique</span>.",
+     "ru": "Не удалось определить результат.<br>Ты... <span class=\"accent\">уникален</span>."
+   }
+ }
+ 
+ 
+ 

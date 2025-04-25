@@ -2,70 +2,206 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useQuizStore } from '@/stores/quiz'
+import { useRoute, useRouter } from 'vue-router'
+import results from '@/data/results.json'
 
 const quizStore = useQuizStore()
 const { locale } = useI18n()
+const route  = useRoute()
+const router = useRouter()
 
 const answers = computed(() => quizStore.answers)
-console.log('answers from store:', answers.value)
 
-const results = {
-   result1: {
-     en: "General of the motherf*ckers army!\nGet your keyboard ready and attack",
-     ru: "Генерал армии мамкоёбов!\nПриготовь клавиатуру и в атаку",
-   },
-   result2: {
-     en: "Certified motherf*cker!\nYou are ready to f*ck mom in chat even she is beige",
-     ru: "Сертифицированный мамкоёб!\nБез страха. Без сомнений. Без ума от чужих мам.",
-   },
-   result3: {
-     en: "You are a real motherf*ucker!\nDr.Dre has already bought your merch",
-     ru: "Ты настоящий ублюдок!Dr.Dre уже купил твой мерч",
-   },
-   result4: {
-     en: "Matchmaking schoolboy\nThe chat is the only place you've ever had sex",
-     ru: "Школьник из матчмейкинга\nЧат — это единственное место, где у тебя был секс",
-   },
-   result5: {
-     en: "Поздравляю, бро!\nТы маменькин сынок\nНоси этот титул и подштанники c гордостью",
-     ru: "Congratulations, bro!\nYou are mommy's boy\nWear this title and underpants proudly",
-   },
-   result6: {
-     en: "Гигасын\nТы уважаешь матерей даже больше, чем просыпаться в 5 утра\n",
-     ru: "GigaSon\nYou respect mothers even more than you respect waking up at 5 a.m.\n",
-   },
-   fallback: {
-     en: "No clear result. You are... unique.",
-     ru: "Не удалось определить результат. Ты... уникален.",
-   },
- }
+function getResultKey(ans) {
+  const dTargets  = [2,3,6,7,8]
+  const bcTargets = [3,4,7]
+  const aTargets  = [3,4,7,8]
 
-const getResult = (answers, locale) => {
-  const dTargets = [2, 3, 6, 7, 8]
-  const bcTargets = [3, 4, 7]
-  const aTargets = [3, 4, 7, 8]
+  const dCount  = dTargets.filter(i => ans[i-1] === 'd').length
+  const bcCount = bcTargets.filter(i => ['b','c'].includes(ans[i-1])).length
+  const aCount  = aTargets.filter(i => ans[i-1] === 'a').length
 
-  const dCount = dTargets.filter(q => answers[q - 1] === 'd').length
-  const bcCount = bcTargets.filter(q => ['b', 'c'].includes(answers[q - 1])).length
-  const aCount = aTargets.filter(q => answers[q - 1] === 'a').length
-
-  if (dCount >= 4) return results.result1[locale] || results.result1.en
-  if (dCount === 3) return results.result2[locale] || results.result2.en
-  if (dCount === 2) return results.result3[locale] || results.result3.en
-  if (bcCount >= 2) return results.result4[locale] || results.result4.en
-  if (aCount >= 3) return results.result5[locale] || results.result5.en
-  if (aCount === 2) return results.result6[locale] || results.result6.en
-
-  return results.fallback[locale] || results.fallback.en
+  if (dCount >= 4) return 'result1'
+  if (dCount === 3) return 'result2'
+  if (dCount === 2) return 'result3'
+  if (bcCount >= 2) return 'result4'
+  if (aCount >= 3) return 'result5'
+  if (aCount === 2) return 'result6'
+  return 'fallback'
 }
 
-const result = computed(() => getResult(answers.value, locale.value))
+const computedKey = computed(() => getResultKey(answers.value))
+
+const resultKey = computed(() =>
+  typeof route.query.type === 'string'
+    ? route.query.type
+    : computedKey.value
+)
+
+const resultLang = computed(() =>
+  typeof route.query.lang === 'string'
+    ? route.query.lang
+    : locale.value
+)
+
+const result = computed(() => {
+  const key = resultKey.value
+  const lang = resultLang.value
+  return (results[key]?.[lang] ?? results[key]?.en) || results.fallback.en
+})
+
+async function copyResultLink() {
+  const url = window.location.origin +
+    router.resolve({
+      name: route.name,                    
+      query: { type: resultKey.value, lang: resultLang.value }
+    }).href
+
+  try {
+    await navigator.clipboard.writeText(url)
+    alert('Ссылка скопирована!')
+  } catch {
+    alert('Не удалось скопировать ссылку')
+  }
+}
 </script>
 
 <template>
-   <div class="result">
-     <h2>{{ result }}</h2>
-   </div>
+  <main class="result-wrapper">
+    <div class="bg-under"></div>
+    <div class="bg-pic"></div>
+
+    <div class="result-container">
+      <div class="result">
+        <h1 class="header-xl" v-html="result"></h1>
+      </div>
+
+      <div class="links-wrapper">
+        <ul class="links-list">
+          <li><a href="#"><img src="/images/google-icon.png" alt="Google icon"></a></li>
+          <li><a href="#"><img src="/images/app-icon.png"    alt="App icon"></a></li>
+          <li><a href="#"><img src="/images/xbet-icon.png"    alt="Xbet icon"></a></li>
+          <li>
+            <button @click="copyResultLink" class="share-btn">
+              <img src="/images/share-icon.png" alt="Share icon">
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
 </template>
+<style lang="scss" scoped>
+   .result-wrapper {
+      @include width-height(100%, 100%);
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+
+      @include mq(small) {
+         @include width-height(100%, 100vh);
+      }
+   }
+
+   .bg-under {
+      position: absolute;
+      inset: 0;
+      background-image: url('/images/bg-layer.webp');
+      background-repeat: no-repeat;
+      background-size: 100% auto; 
+      background-position: bottom center;
+      z-index: -1;
+   }
+
+   .bg-pic {
+      position: absolute;
+      inset: 0;
+      background-image:  url('/images/bg-layer-2.webp');
+      background-repeat: no-repeat;
+      background-size: 53% auto; 
+      background-position: bottom right; 
+      z-index: -2;
+
+      @include mq(small) {
+         background-size: 120% auto; 
+         background-position: bottom left; 
+      }
+   }
+
+   .result-container {
+      @include width-height(100%, 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      padding-block: 11rem 6.12rem;
+      gap: 3rem;
+
+      @include mq(small) {
+         flex-direction: column;
+         padding-block: 10rem 2.94rem;
+      }
+   }
+
+   h1 {
+      width: 100%;
+      width: 74.6875rem;
+      text-align: center;
+      padding-inline: 2.13rem;
+
+      @include mq(small) {
+         width: 100%;
+         font-size: 2.625rem;
+         letter-spacing: 0.02625rem;
+         padding-inline: 0.94rem;
+      }
+   }
+      
+
+   .links-list {
+      @include flexbox(row, start, center, 0);
+
+      @include mq(small) {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         grid-template-rows: 1fr 1fr;
+         row-gap: 0.44rem;
+         padding-inline: 1.12rem;
+
+         li:nth-child(1) { order: 3; }
+         li:nth-child(2) { order: 4; }
+         li:nth-child(3) { order: 1; }
+         li:nth-child(4) { order: 2; }
+      }
+
+      li {
+         a,
+         button {
+            display: block;
+            width: 20.375rem;
+            height: 5.75rem;
+
+            @include mq(small) {
+               width: 100%;
+               height: auto;
+            }
+
+            img {
+               width: 100%;
+               height: 100%;
+               object-fit: contain; 
+               display: block;
+            }
+         }
+
+         button {
+            background-color: transparent;
+            border: none;
+         }
+      }
+   }
+
+
+</style>
 
  

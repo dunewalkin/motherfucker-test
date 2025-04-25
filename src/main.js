@@ -8,15 +8,17 @@ import router from './router'
 import './assets/styles/base.scss'
 import './assets/styles/fonts.scss'
 
+const userLang = navigator.language.toLowerCase()
 const i18n = createI18n({
    legacy: false,
-  locale: 'ru',                
-  fallbackLocale: 'en',
-  messages: { ru, en }
+   locale: userLang.startsWith('ru') ? 'ru' : 'en',
+   fallbackLocale: 'en',
+   messages: { ru, en },
+   escapeParameterHtml: false
 })
 
 createApp(App)
    .use(createPinia()) 
-  .use(router)
-  .use(i18n)
-  .mount('#app')
+   .use(router)
+   .use(i18n)
+   .mount('#app')

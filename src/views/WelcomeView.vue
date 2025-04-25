@@ -11,7 +11,7 @@ function startQuiz() {
 <template>
    <main class="main-wrapper">
       <section class="welcome">
-         <div class="welcome__container">
+         <div class="welcome-container">
             <h1 class="header-xl" v-html="$t('welcome.title')"></h1>
             <div class="input-with-button">
                <input type="text" placeholder="напиши имя, сосунок">
@@ -29,11 +29,11 @@ function startQuiz() {
    display: flex;
    align-items: center;
    justify-content: center;
-   height: 100vh;
    padding-inline: 2.06rem;
 
    h1 {
-      margin-top: 5rem;
+      margin-top: 10rem;
+      // margin-top: 5rem;
       max-width: 63rem;
       text-align: center;
    }
@@ -80,7 +80,7 @@ function startQuiz() {
       @include flexbox(row, center, center, 0.62rem);
 
       @include mq(small) {
-         margin-top: 5rem;
+         margin-block: 5rem;
          @include flexbox(column, center, center, 0.62rem);
       }
    }

@@ -91,7 +91,7 @@ function toggleLocale() {
       @include width-height(auto, 3.125rem);
    }
 
-   img {
+   img, a {
       @include width-height(100%, 100%);
    }
 }

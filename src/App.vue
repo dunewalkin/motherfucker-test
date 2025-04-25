@@ -83,37 +83,17 @@ function toggleLocale() {
    }
 }
 
-// .logo-wrapper {
-//    @include position(absolute, 3.13rem, auto, auto, 2.12rem);
-//    @include width-height(18.25rem, 5.75856rem);
-
-//    @include mq(small) {
-//       @include position(absolute, 2.5rem, auto, auto, 1.25rem);
-//       @include width-height(10rem, 3.125rem);
-//    }
-
-//    img, a {
-//       @include width-height(100%, 100%);
-//    }
-// }
-
 .logo-wrapper {
-   position: absolute;
-   top: 3.13rem;  
-   left: 2.12rem; 
-   width: 18.25rem;
-   height: 5.75856rem;
+   @include position(absolute, 3.13rem, auto, auto, 2.12rem);
+   @include width-height(18.25rem, 5.75856rem);
 
    @include mq(small) {
-      top: 2.5rem;    
-      left: 1.25rem;  
-      width: 10rem;
-      height: 3.125rem;
+      @include position(absolute, 2.5rem, auto, auto, 1.25rem);
+      @include width-height(10rem, 3.125rem);
    }
 
    img, a {
-      width: 100%;
-      height: 100%;
+      @include width-height(100%, 100%);
    }
 }
 </style>

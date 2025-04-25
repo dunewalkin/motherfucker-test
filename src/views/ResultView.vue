@@ -99,7 +99,7 @@ async function copyResultLink() {
       overflow: hidden;
 
       @include mq(small) {
-         @include width-height(100%, 100vh);
+         @include width-height(100%, 100%);
       }
    }
 
@@ -200,8 +200,6 @@ async function copyResultLink() {
          }
       }
    }
-
-
 </style>
 
  

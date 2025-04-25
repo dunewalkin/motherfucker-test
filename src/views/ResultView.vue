@@ -94,13 +94,14 @@ async function copyResultLink() {
 <style lang="scss" scoped>
    .result-wrapper {
       @include width-height(100%, 100%);
+      min-height: 100vh;
       position: relative;
       z-index: 0;
       overflow: hidden;
 
-      @include mq(small) {
-         @include width-height(100%, 100%);
-      }
+      // @include mq(small) {
+      //    @include width-height(100%, 100%);
+      // }
    }
 
    .bg-under {
@@ -133,13 +134,14 @@ async function copyResultLink() {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      
+      padding-inline: 3.5rem;
       padding-block: 11rem 6.12rem;
       gap: 3rem;
 
       @include mq(small) {
          flex-direction: column;
          padding-block: 10rem 2.94rem;
+         padding-inline: 1rem;
       }
    }
 

@@ -37,6 +37,7 @@ function toggleLocale() {
 </template>
 
 <style lang="scss" scoped>
+
 .lang-buttons-wrapper {
    @include position(absolute, 3.13rem, 50%, auto, auto);
    transform: translate(50%);
@@ -82,17 +83,37 @@ function toggleLocale() {
    }
 }
 
+// .logo-wrapper {
+//    @include position(absolute, 3.13rem, auto, auto, 2.12rem);
+//    @include width-height(18.25rem, 5.75856rem);
+
+//    @include mq(small) {
+//       @include position(absolute, 2.5rem, auto, auto, 1.25rem);
+//       @include width-height(10rem, 3.125rem);
+//    }
+
+//    img, a {
+//       @include width-height(100%, 100%);
+//    }
+// }
+
 .logo-wrapper {
-   @include position(absolute, 3.13rem, auto, auto, 2.12rem);
-   @include width-height(auto, 5.75856rem);
+   position: absolute;
+   top: 3.13rem;  
+   left: 2.12rem; 
+   width: 18.25rem;
+   height: 5.75856rem;
 
    @include mq(small) {
-      @include position(absolute, 2.5rem, auto, auto, 1.25rem);
-      @include width-height(auto, 3.125rem);
+      top: 2.5rem;    
+      left: 1.25rem;  
+      width: 10rem;
+      height: 3.125rem;
    }
 
    img, a {
-      @include width-height(100%, 100%);
+      width: 100%;
+      height: 100%;
    }
 }
 </style>

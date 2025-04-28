@@ -2,5 +2,11 @@
    "welcome": {
      "title": "WHAT TYPE OF MOTHER&shy;F*CKER ARE YOU?",
      "placeholder": "Tell me your name, rookie"
+   },
+   "message": {
+     "copied": "The link to the result has been copied, just send it to your friend",
+     "read": "Read",
+     "share": "Share result",
+    "copiedButton": "Link copied"
    }
 }

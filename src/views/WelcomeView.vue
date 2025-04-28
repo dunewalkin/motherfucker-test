@@ -33,7 +33,6 @@ function startQuiz() {
 
    h1 {
       margin-top: 10rem;
-      // margin-top: 5rem;
       max-width: 63rem;
       text-align: center;
    }

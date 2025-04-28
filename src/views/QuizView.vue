@@ -16,7 +16,6 @@ const question = computed(() => questions[currentIndex.value])
 
 function selectAnswer(optionId) {
   answers.value[currentIndex.value] = optionId
-  console.log('✅ Answer selected:', answers.value)
 }
 
 function next() {
@@ -24,7 +23,6 @@ function next() {
     currentIndex.value++
   } else {
     quizStore.setAnswers(answers.value)
-    console.log('Final answers:', answers.value)
     router.push({ name: 'result' })
   }
 }

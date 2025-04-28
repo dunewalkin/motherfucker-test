@@ -24,8 +24,8 @@
      "ru": "<span class=\"accent\">Гига&shy;сын</span><br>Ты уважаешь матерей даже больше, чем просыпаться в 5 утра"
    },
    "fallback": {
-     "en": "No clear result.<br>You are... <span class=\"accent\">unique</span>.",
-     "ru": "Не удалось определить результат.<br>Ты... <span class=\"accent\">уникален</span>."
+     "en": "No clear result.<br>You are... <span class=\"accent\">unique</span>",
+     "ru": "Не удалось определить результат.<br>Ты... <span class=\"accent\">уникален</span>"
    }
  }
  

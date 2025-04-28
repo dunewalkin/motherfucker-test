@@ -1,4 +1,12 @@
 @font-face {
+   font-family: 'Inter';
+   src: url('../fonts/Inter/Inter18pt-Regular.woff2') format('woff2'),
+        url('../fonts/Inter/Inter18pt-Regular.woff') format('woff');
+   font-weight: 400;
+   font-style: normal;
+ }
+
+@font-face {
   font-family: 'Montserrat';
   src:
     local('Montserrat Black'),
@@ -7,6 +15,16 @@
   font-style: normal;
   font-weight: 900;
 }
+
+@font-face {
+   font-family: 'Montserrat';
+   src:
+     local('Montserrat Medium'),
+     url(../fonts/Montserrat/Montserrat-Medium.woff2) format('woff2'),
+     url(../fonts/Montserrat/Montserrat-Medium.woff) format('woff');
+   font-style: normal;
+   font-weight: 500;
+ }
 
 @font-face {
   font-family: 'CeraPro';

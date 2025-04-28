@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useQuizStore } from '@/stores/quiz'
 import { useRoute, useRouter } from 'vue-router'
@@ -9,6 +9,8 @@ const quizStore = useQuizStore()
 const { locale } = useI18n()
 const route  = useRoute()
 const router = useRouter()
+
+const linkCopied = ref(false) 
 
 const answers = computed(() => quizStore.answers)
 
@@ -53,39 +55,120 @@ const result = computed(() => {
 async function copyResultLink() {
   const url = window.location.origin +
     router.resolve({
-      name: route.name,                    
+      name: route.name,
       query: { type: resultKey.value, lang: resultLang.value }
     }).href
 
   try {
     await navigator.clipboard.writeText(url)
-    alert('Ссылка скопирована!')
+    linkCopied.value = true 
+
+    setTimeout(() => {
+      linkCopied.value = false
+    }, 5000)
   } catch {
     alert('Не удалось скопировать ссылку')
   }
 }
 </script>
 
+
 <template>
   <main class="result-wrapper">
     <div class="bg-under"></div>
     <div class="bg-pic"></div>
 
+    <div v-if="linkCopied" class="message-wrapper">
+      <div class="message-container">
+         <span v-html="$t('message.copied')"></span>
+         <svg class="pseudo-part" xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 18 21" fill="none">
+            <path d="M16.9865 20.1846C11.7865 20.9846 6.65313 18.1212 4.98646 16.2879C6.70433 12.1914 -3.90146 2.24186 3.09854 2.24148C4.71715 2.24148 6.09961 -1.9986 11.9865 1.1846C12.0077 2.47144 11.9865 6.92582 11.9865 7.6842C11.9865 18.1842 17.9865 19.5813 16.9865 20.1846Z" fill="#448AF7"/>
+         </svg>     
+      </div>
+      <span v-html="$t('message.read')"></span>
+   </div>
+ 
+
     <div class="result-container">
       <div class="result">
-        <h1 class="header-xl" v-html="result"></h1>
+        <h1 class="header-l" v-html="result"></h1>
       </div>
+
+     
 
       <div class="links-wrapper">
         <ul class="links-list">
-          <li><a href="#"><img src="/images/google-icon.png" alt="Google icon"></a></li>
-          <li><a href="#"><img src="/images/app-icon.png"    alt="App icon"></a></li>
-          <li><a href="#"><img src="/images/xbet-icon.png"    alt="Xbet icon"></a></li>
-          <li>
+
+         <li>
+            <a href="#">
+               <div class="link-item-wrapper black google-link">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 92">
+                  <path d="M21.1787 1H331.42C336.741 1 340.86 5.57666 340.385 10.8027L340.324 11.3105L329.726 83.3105C329.075 87.7271 325.286 90.9998 320.822 91H10.5801C5.25944 91 1.14045 86.4233 1.61523 81.1973L1.67578 80.6895L12.2744 8.68945C12.9246 4.27273 16.7144 1 21.1787 1Z"
+                     fill="currentColor" />
+                  </svg>
+
+                  <div class="link-item-content">
+                     <img class="link-logo" src="/images/google-icon-3.png" alt="Google Logo">
+                     <div class="link-item-text">
+                        <span class="top">get it on</span>
+                        <span class="bottom">Google Play</span>
+                     </div>
+                  </div>
+               </div>
+            </a>
+         </li>
+
+         <li>
+            <a href="#">
+               <div class="link-item-wrapper black apple-link">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 92">
+                  <path d="M21.1787 1H331.42C336.741 1 340.86 5.57666 340.385 10.8027L340.324 11.3105L329.726 83.3105C329.075 87.7271 325.286 90.9998 320.822 91H10.5801C5.25944 91 1.14045 86.4233 1.61523 81.1973L1.67578 80.6895L12.2744 8.68945C12.9246 4.27273 16.7144 1 21.1787 1Z"
+                     fill="currentColor" />
+                  </svg>
+
+                  <div class="link-item-content"></div>
+               </div>
+            </a>
+         </li>
+
+         <li>
+            <a href="#">
+               <div class="link-item-wrapper black green bet-link">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 92">
+                  <path d="M21.1787 1H331.42C336.741 1 340.86 5.57666 340.385 10.8027L340.324 11.3105L329.726 83.3105C329.075 87.7271 325.286 90.9998 320.822 91H10.5801C5.25944 91 1.14045 86.4233 1.61523 81.1973L1.67578 80.6895L12.2744 8.68945C12.9246 4.27273 16.7144 1 21.1787 1Z"
+                     fill="currentColor" />
+                  </svg>
+
+                  <div class="link-item-content">
+                     <span>1_xbet2025</span>
+                  </div>
+               </div>
+            </a>
+         </li>
+
+         <li>
             <button @click="copyResultLink" class="share-btn">
-              <img src="/images/share-icon.png" alt="Share icon">
+               <div :class="['link-item-wrapper', linkCopied ? 'copied' : 'transparent']">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 92">
+                  <path d="M21.1787 1H331.42C336.741 1 340.86 5.57666 340.385 10.8027L340.324 11.3105L329.726 83.3105C329.075 87.7271 325.286 90.9998 320.822 91H10.5801C5.25944 91 1.14045 86.4233 1.61523 81.1973L1.67578 80.6895L12.2744 8.68945C12.9246 4.27273 16.7144 1 21.1787 1Z"
+                     fill="currentColor" />
+                  </svg>
+
+                  <div class="link-item-content">
+                     <div class="link-item-text">
+                        <span>{{ linkCopied ? $t('message.copiedButton') : $t('message.share') }}</span>
+                     </div>
+                     <img
+                        class="link-logo"
+                        :src="linkCopied ? '/icons/done-icon.svg' : '/icons/share-arrow.svg'"
+                        :alt="linkCopied ? 'Done icon' : 'Share icon'"
+                     />
+                  </div>
+               </div>
             </button>
-          </li>
+         </li>
+
+
         </ul>
       </div>
     </div>
@@ -98,10 +181,6 @@ async function copyResultLink() {
       position: relative;
       z-index: 0;
       overflow: hidden;
-
-      // @include mq(small) {
-      //    @include width-height(100%, 100%);
-      // }
    }
 
    .bg-under {
@@ -134,26 +213,26 @@ async function copyResultLink() {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding-inline: 3.5rem;
+      padding-inline: 2.12rem;
       padding-block: 11rem 6.12rem;
       gap: 3rem;
 
       @include mq(small) {
          flex-direction: column;
-         padding-block: 10rem 2.94rem;
+         padding-block: 7.5rem 2.94rem;
          padding-inline: 1rem;
+         min-height: 100vh;
       }
    }
 
    h1 {
       width: 100%;
-      width: 74.6875rem;
+      max-width: 70rem;
       text-align: center;
-      padding-inline: 2.13rem;
 
       @include mq(small) {
          width: 100%;
-         font-size: 2.625rem;
+         font-size: 2rem;
          letter-spacing: 0.02625rem;
          padding-inline: 0.94rem;
       }
@@ -168,40 +247,290 @@ async function copyResultLink() {
          grid-template-columns: 1fr 1fr;
          grid-template-rows: 1fr 1fr;
          row-gap: 0.44rem;
-         padding-inline: 1.12rem;
+         // padding-inline: 1.12rem;
 
          li:nth-child(1) { order: 3; }
          li:nth-child(2) { order: 4; }
          li:nth-child(3) { order: 1; }
          li:nth-child(4) { order: 2; }
       }
+   }
 
-      li {
-         a,
-         button {
-            display: block;
-            width: 20.375rem;
-            height: 5.75rem;
 
-            @include mq(small) {
-               width: 100%;
-               height: auto;
-            }
 
-            img {
-               width: 100%;
-               height: 100%;
-               object-fit: contain; 
-               display: block;
-            }
-         }
+   .black {
+      color: var(--black-200);
+      stroke-width: 2px;
+      stroke: var(--black-200);
+   }
 
-         button {
-            background-color: transparent;
-            border: none;
+   .green {
+      color: var(--accent); 
+      stroke-width: 2px;
+      stroke: var(--accent);
+   }
+
+   .transparent {
+      color: rgba(255, 255, 255, 0.20);
+      stroke-width: 2px;
+      stroke: var(--white-100);
+   }
+
+   .link-item-wrapper {
+      position: relative;
+      width: 20.375rem;
+      height: 5.75rem;
+
+      @include mq(small) {
+         width: 100%;
+         height: 3.125rem;
+      }
+
+      .icon {
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         z-index: 1;
+      }
+
+      .link-item-content {
+         position: relative;
+         padding: 1rem;
+         z-index: 2; 
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-direction: row;
+         height: 100%;    
+         
+         @include mq(small) {
+            padding: 0.55rem;
          }
       }
    }
+
+
+   .google-link {
+
+      .link-item-text {
+         display: flex;
+         flex-direction: column;
+         gap: 0.5rem;
+         color: white; 
+
+         @include mq(small) {
+            gap: 0.27rem;
+         }
+
+         .top {
+            font-family: "Montserrat";
+            font-size: 1.375rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 100%; /* 1.375rem */
+            text-transform: uppercase;
+
+            @include mq(small) {
+               font-size: 0.74669rem;
+            }
+         }
+
+         .bottom {
+            font-family: "Helvetica Neue";
+            font-size: 1.875rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 100%; 
+
+            @include mq(small) {
+               font-size: 1.01825rem;            
+            }
+         }
+      }
+
+         .link-item-content {
+            gap: 1.06rem;
+
+            @include mq(small) {
+               font-size: 0.58rem;            
+            }
+
+            .link-text-google {
+               color: white; 
+            }
+         }
+
+         .link-logo {
+            width: 3.3125rem;
+            height: 3.625rem;
+
+            @include mq(small) {
+               width: 1.79469rem;
+               height: 1.97325rem;          
+            }
+         }
+   }
+
+   .apple-link {
+      .link-item-content {
+         background-image: url('/images/apple-icon.png');
+         background-position: center center;
+         background-size: 70%;
+         background-repeat: no-repeat;
+      }
+   }
+
+   .bet-link {
+      span {
+         font-family: "CeraPro";
+         font-size: 1.875rem;
+         font-style: normal;
+         font-weight: 900;
+         line-height: 100%; /* 1.875rem */
+         text-transform: uppercase;
+         color: var(--blue-200);
+
+         @include mq(small) {
+            font-size: 0.875rem;
+         }
+      }
+   }
+
+   .share-btn {
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include mq(small) {
+         width: 100%;
+      }
+
+      .link-logo {
+         @include width-height(3.75rem, 3.0625rem);
+
+         @include mq(small) {
+            @include width-height(1.9375rem, 1.5625rem);
+         }
+      }
+
+      span {
+         font-family: "CeraPro";
+         font-size: 1.875rem;
+         font-style: normal;
+         font-weight: 900;
+         line-height: 100%; /* 1.875rem */
+         text-transform: uppercase;
+         color: var(--white-100);
+
+         @include mq(small) {
+            font-size: 0.875rem;
+         }
+      }
+
+      .link-item-content {
+         gap: 1.25rem;  
+
+         @include mq(small) {
+            gap: 0.69rem;  
+            margin-inline: 1rem;
+         }
+
+         .link-item-text {
+            display: flex;
+         }
+      }
+   }
+
+   .link-item-wrapper.copied {
+      .icon {
+         color: var(--white-100);
+         stroke: var(--blue-100);
+      }
+
+      .link-item-content {
+         gap: 0.62rem;  
+      }
+
+      span {
+         color: var(--blue-100);
+      }
+   }
+
+   .message-wrapper {
+      position: absolute;
+      top: 50%;
+      right: 36%;
+      width: 18.62rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      @include mq(small) {
+         width: 9.06rem;
+         top: auto;
+         right: 61%;
+         bottom: 13rem;
+      }
+
+      span {
+         font-family: Inter;
+         font-size: 0.6875rem;
+         font-style: normal;
+         font-weight: 400;
+         line-height: 0.8125rem; /* 118.182% */
+         letter-spacing: 0.00413rem;
+         color: rgba(255, 255, 255, 0.60);
+         text-align: right;
+
+         @include mq(small) {
+            font-size: 0.625rem;
+         }
+      }
+   }
+
+   .message-container {
+      position: relative;
+      padding: 0.375rem 0.75rem 0.625rem 0.875rem;
+      border-radius: 1.125rem;
+      background: var(--blue-300);
+      @include width-height(100%, 3.75rem);
+
+      @include mq(small) {
+         padding: 0.4rem 0.75rem;
+         @include width-height(100%, 3.82rem);
+      }
+
+      span {
+         font-family: Inter;
+         font-size: 1rem;
+         font-style: normal;
+         font-weight: 400;
+         line-height: 1.375rem; /* 137.5% */
+         letter-spacing: -0.0255rem;
+         color: var(--white-100);
+         display: inline-block;
+         text-align: left;
+
+         @include mq(small) {
+            font-size: 0.75rem;
+            line-height: 135%; /* 1.0125rem */
+            letter-spacing: -0.0255rem;
+         }
+      }
+
+      .pseudo-part {
+         @include position(absolute, auto, -0.4rem, -0.08rem, auto);
+         fill: var(--blue-300);
+
+         @include mq(small) {
+            @include position(absolute, auto, -0.37rem, -0.03rem, auto);
+         }
+      }
+   }
+
+   
 </style>
 
  

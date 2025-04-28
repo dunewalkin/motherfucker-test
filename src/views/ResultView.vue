@@ -227,7 +227,7 @@ async function copyResultLink() {
 
    h1 {
       width: 100%;
-      max-width: 70rem;
+      max-width: 60%;
       text-align: center;
 
       @include mq(small) {
@@ -235,6 +235,7 @@ async function copyResultLink() {
          font-size: 2rem;
          letter-spacing: 0.02625rem;
          padding-inline: 0.94rem;
+         max-width: 100%;
       }
    }
       
@@ -247,7 +248,6 @@ async function copyResultLink() {
          grid-template-columns: 1fr 1fr;
          grid-template-rows: 1fr 1fr;
          row-gap: 0.44rem;
-         // padding-inline: 1.12rem;
 
          li:nth-child(1) { order: 3; }
          li:nth-child(2) { order: 4; }

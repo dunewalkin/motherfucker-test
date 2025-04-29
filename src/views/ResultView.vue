@@ -101,69 +101,36 @@ async function copyResultLink() {
 
          <li>
             <a href="#">
-               <div class="link-item-wrapper black google-link">
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 92">
-                  <path d="M21.1787 1H331.42C336.741 1 340.86 5.57666 340.385 10.8027L340.324 11.3105L329.726 83.3105C329.075 87.7271 325.286 90.9998 320.822 91H10.5801C5.25944 91 1.14045 86.4233 1.61523 81.1973L1.67578 80.6895L12.2744 8.68945C12.9246 4.27273 16.7144 1 21.1787 1Z"
-                     fill="currentColor" />
-                  </svg>
-
-                  <div class="link-item-content">
-                     <img class="link-logo" src="/images/google-icon-3.png" alt="Google Logo">
-                     <div class="link-item-text">
-                        <span class="top">get it on</span>
-                        <span class="bottom">Google Play</span>
-                     </div>
-                  </div>
+               <div class="link-item-wrapper black">
+                  <img src="/icons/google.svg" alt="Google">
                </div>
             </a>
          </li>
 
          <li>
             <a href="#">
-               <div class="link-item-wrapper black apple-link">
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 92">
-                  <path d="M21.1787 1H331.42C336.741 1 340.86 5.57666 340.385 10.8027L340.324 11.3105L329.726 83.3105C329.075 87.7271 325.286 90.9998 320.822 91H10.5801C5.25944 91 1.14045 86.4233 1.61523 81.1973L1.67578 80.6895L12.2744 8.68945C12.9246 4.27273 16.7144 1 21.1787 1Z"
-                     fill="currentColor" />
-                  </svg>
-
-                  <div class="link-item-content"></div>
+               <div class="link-item-wrapper">
+                  <img src="/icons/apple.svg" alt="Apple">
                </div>
             </a>
          </li>
 
          <li>
             <a href="#">
-               <div class="link-item-wrapper black green bet-link">
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 92">
-                  <path d="M21.1787 1H331.42C336.741 1 340.86 5.57666 340.385 10.8027L340.324 11.3105L329.726 83.3105C329.075 87.7271 325.286 90.9998 320.822 91H10.5801C5.25944 91 1.14045 86.4233 1.61523 81.1973L1.67578 80.6895L12.2744 8.68945C12.9246 4.27273 16.7144 1 21.1787 1Z"
-                     fill="currentColor" />
-                  </svg>
-
-                  <div class="link-item-content">
-                     <span>1_xbet2025</span>
-                  </div>
+               <div class="link-item-wrapper">
+                  <img src="/icons/1bet.svg" alt="1bet">
                </div>
             </a>
          </li>
 
          <li>
             <button @click="copyResultLink" class="share-btn">
-               <div :class="['link-item-wrapper', linkCopied ? 'copied' : 'transparent']">
-                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342 92">
-                  <path d="M21.1787 1H331.42C336.741 1 340.86 5.57666 340.385 10.8027L340.324 11.3105L329.726 83.3105C329.075 87.7271 325.286 90.9998 320.822 91H10.5801C5.25944 91 1.14045 86.4233 1.61523 81.1973L1.67578 80.6895L12.2744 8.68945C12.9246 4.27273 16.7144 1 21.1787 1Z"
-                     fill="currentColor" />
-                  </svg>
-
-                  <div class="link-item-content">
-                     <div class="link-item-text">
-                        <span>{{ linkCopied ? $t('message.copiedButton') : $t('message.share') }}</span>
-                     </div>
-                     <img
-                        class="link-logo"
-                        :src="linkCopied ? '/icons/done-icon.svg' : '/icons/share-arrow.svg'"
-                        :alt="linkCopied ? 'Done icon' : 'Share icon'"
-                     />
-                  </div>
+               <div class="link-item-wrapper">
+                  <img
+                     class="link-logo"
+                     :src="linkCopied ? '/icons/copied.svg' : '/icons/share.svg'"
+                     :alt="linkCopied ? 'Copy icon' : 'Share icon'"
+                  />
                </div>
             </button>
          </li>
@@ -256,28 +223,7 @@ async function copyResultLink() {
       }
    }
 
-
-
-   .black {
-      color: var(--black-200);
-      stroke-width: 2px;
-      stroke: var(--black-200);
-   }
-
-   .green {
-      color: var(--accent); 
-      stroke-width: 2px;
-      stroke: var(--accent);
-   }
-
-   .transparent {
-      color: rgba(255, 255, 255, 0.20);
-      stroke-width: 2px;
-      stroke: var(--white-100);
-   }
-
    .link-item-wrapper {
-      position: relative;
       width: 20.375rem;
       height: 5.75rem;
 
@@ -285,178 +231,16 @@ async function copyResultLink() {
          width: 100%;
          height: 3.125rem;
       }
-
-      .icon {
-         position: absolute;
-         width: 100%;
-         height: 100%;
-         z-index: 1;
-      }
-
-      .link-item-content {
-         position: relative;
-         padding: 1rem;
-         z-index: 2; 
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         flex-direction: row;
-         height: 100%;    
-         
-         @include mq(small) {
-            padding: 0.55rem;
-         }
-      }
-   }
-
-
-   .google-link {
-
-      .link-item-text {
-         display: flex;
-         flex-direction: column;
-         gap: 0.5rem;
-         color: white; 
-
-         @include mq(small) {
-            gap: 0.27rem;
-         }
-
-         .top {
-            font-family: "Montserrat";
-            font-size: 1.375rem;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 100%; /* 1.375rem */
-            text-transform: uppercase;
-
-            @include mq(small) {
-               font-size: 0.74669rem;
-            }
-         }
-
-         .bottom {
-            font-family: "Helvetica Neue";
-            font-size: 1.875rem;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 100%; 
-
-            @include mq(small) {
-               font-size: 1.01825rem;            
-            }
-         }
-      }
-
-         .link-item-content {
-            gap: 1.06rem;
-
-            @include mq(small) {
-               font-size: 0.58rem;            
-            }
-
-            .link-text-google {
-               color: white; 
-            }
-         }
-
-         .link-logo {
-            width: 3.3125rem;
-            height: 3.625rem;
-
-            @include mq(small) {
-               width: 1.79469rem;
-               height: 1.97325rem;          
-            }
-         }
-   }
-
-   .apple-link {
-      .link-item-content {
-         background-image: url('/images/apple-icon.png');
-         background-position: center center;
-         background-size: 70%;
-         background-repeat: no-repeat;
-      }
-   }
-
-   .bet-link {
-      span {
-         font-family: "CeraPro";
-         font-size: 1.875rem;
-         font-style: normal;
-         font-weight: 900;
-         line-height: 100%; /* 1.875rem */
-         text-transform: uppercase;
-         color: var(--blue-200);
-
-         @include mq(small) {
-            font-size: 0.875rem;
-         }
-      }
    }
 
    .share-btn {
+      width: 100%;
+      height: auto;
       background: transparent;
       border: none;
       display: flex;
-      align-items: center;
-      justify-content: center;
-
-      @include mq(small) {
-         width: 100%;
-      }
-
-      .link-logo {
-         @include width-height(3.75rem, 3.0625rem);
-
-         @include mq(small) {
-            @include width-height(1.9375rem, 1.5625rem);
-         }
-      }
-
-      span {
-         font-family: "CeraPro";
-         font-size: 1.875rem;
-         font-style: normal;
-         font-weight: 900;
-         line-height: 100%; /* 1.875rem */
-         text-transform: uppercase;
-         color: var(--white-100);
-
-         @include mq(small) {
-            font-size: 0.875rem;
-         }
-      }
-
-      .link-item-content {
-         gap: 1.25rem;  
-
-         @include mq(small) {
-            gap: 0.69rem;  
-            margin-inline: 1rem;
-         }
-
-         .link-item-text {
-            display: flex;
-         }
-      }
    }
 
-   .link-item-wrapper.copied {
-      .icon {
-         color: var(--white-100);
-         stroke: var(--blue-100);
-      }
-
-      .link-item-content {
-         gap: 0.62rem;  
-      }
-
-      span {
-         color: var(--blue-100);
-      }
-   }
 
    .message-wrapper {
       position: absolute;

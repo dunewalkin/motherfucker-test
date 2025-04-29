@@ -76,6 +76,10 @@ function toggleLocale() {
          color: var(--blue-100);
       }
 
+      &:hover {
+         background-color: rgba(255, 255, 255, 0.40);
+      }
+
       &.active {
          background-color: var(--white-100);
          color: var(--blue-100);

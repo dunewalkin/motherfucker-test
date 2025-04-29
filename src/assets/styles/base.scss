@@ -144,11 +144,17 @@ a {
    border-radius: 50%;
    border: transparent;
    background-image: url('/icons/next-arrow.svg');
+   background-color: transparent;
+   transition: background-image 0.3s, background-color 0.3s;
 
    // &:disabled {
    //    fill: var(--blue-100);
    // }
 }
+
+.round-btn-next.error {
+   background-image: url('/icons/error.svg'); 
+ }
 
 .round-btn-previous {
    @include width-height(3.0625rem, 3.0625rem);
@@ -158,6 +164,7 @@ a {
    border-radius: 50%;
    border: transparent;
    background-image: url('/icons/previous-arrow.svg');
+   background-color: transparent;
 
    // &:disabled {
    //    fill: var(--blue-100);

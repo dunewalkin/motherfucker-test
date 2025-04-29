@@ -42,3 +42,9 @@ $breakpoints: (
   width: $width;
   height: $height;
 }
+
+@keyframes blink {
+   to {
+     visibility: hidden;
+   }
+ }

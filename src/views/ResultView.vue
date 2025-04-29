@@ -124,7 +124,7 @@ async function copyResultLink() {
          </li>
 
          <li>
-            <button @click="copyResultLink" class="share-btn">
+            <button @click="copyResultLink">
                <div class="link-item-wrapper">
                   <img
                      class="link-logo"
@@ -221,6 +221,14 @@ async function copyResultLink() {
          li:nth-child(3) { order: 1; }
          li:nth-child(4) { order: 2; }
       }
+
+      button {
+         width: 100%;
+         height: auto;
+         background: transparent;
+         border: none;
+         display: flex;
+      }
    }
 
    .link-item-wrapper {
@@ -233,13 +241,7 @@ async function copyResultLink() {
       }
    }
 
-   .share-btn {
-      width: 100%;
-      height: auto;
-      background: transparent;
-      border: none;
-      display: flex;
-   }
+  
 
 
    .message-wrapper {

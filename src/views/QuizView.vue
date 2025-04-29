@@ -228,5 +228,12 @@ function back() {
          margin-bottom: 2rem;
       }
    }
+
+   ::v-deep(.accent) {
+      @include mq(small) {
+         font-size: 1.25rem;
+         letter-spacing: 0.0125rem;
+      }
+   }
    
 </style>

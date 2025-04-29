@@ -172,9 +172,15 @@ a {
 }
 
 .accent {
+   font-family: "Montserrat";
+   font-size: 3.5625rem;
+   font-style: normal;
+   font-weight: 900;
+   line-height: 110%; /* 3.91875rem */
+   letter-spacing: 0.03563rem;
+   text-transform: uppercase;
    color: var(--black-100);
-   font-weight: bold;
- }
+}
 
 .margin-main {
    margin-top: 5rem;

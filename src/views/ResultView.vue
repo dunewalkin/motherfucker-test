@@ -205,6 +205,14 @@ async function copyResultLink() {
          max-width: 100%;
       }
    }
+
+   ::v-deep(.accent) {
+
+      @include mq(small) {
+         font-size: 2rem;
+         letter-spacing: 0.02625rem;
+      }
+   }
       
 
    .links-list {

@@ -44,7 +44,7 @@ function clearInput() {
             v-model="userName"
             :class="['welcome-input', { 'error': isInputError }]"
             type="text"
-            placeholder="напиши имя, сосунок"
+            :placeholder="$t('welcome.placeholder')"
             @input="handleInputChange"
             >
          </div>

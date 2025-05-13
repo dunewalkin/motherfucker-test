@@ -37,10 +37,10 @@ function back() {
 </script>
 
 <template>
-   <main class="main-wrapper">
+   <main class="main-wrapper container quiz-contaner">
       <section class="quiz-wrapper">
          <div class="header-wrapper">
-            <h1 class="header-l" v-html="question.text[locale]"></h1>
+            <h1 class="header-m" v-html="question.text[locale]"></h1>
          </div>
          <div class="flexbox">
             <div class="image-wrapper">
@@ -75,20 +75,30 @@ function back() {
 </template>
 
 <style lang="scss" scoped>
+
+.quiz-contaner {
+   padding-bottom: 4rem;
+   // padding-inline: 1.5rem;
+
+   @include mq(medium) {
+      padding-bottom: 3rem;
+      // padding-inline: 1.2rem;
+   }
+
+   @include mq(small) {
+      padding-bottom: 2.5rem;
+   }
+}
    .quiz-wrapper {
       max-width: 83.6875rem;
       text-align: center;
-      margin-top: 8rem;
-
       @include flexbox(column, start, center, 0);
 
-      @include mq(small) {
-         margin-top: 8rem;
-      }
    }
 
    .header-wrapper {
-      @include mq(small) {
+
+      @include mq(medium) {
          padding-inline: 0.5rem;
       }
    }
@@ -98,11 +108,15 @@ function back() {
       @include flexbox(row, center, start, 1.88rem);
       gap: 1.88rem;
       align-items: stretch;
+      
+
+      @include mq(medium) {
+         padding-inline: 1.2rem;
+      }
 
       @include mq(small) {
          margin-top: 2.5rem;
          @include flexbox(column, center, start, 0.62rem);
-         padding-inline: 1.2rem;
       }
 
       .answers-wrapper {
@@ -137,7 +151,7 @@ function back() {
          text-transform: uppercase;
          text-align: left;
 
-         @include mq(small) {
+         @include mq(medium) {
             width: 100%;
             padding: 0.37rem;
             font-size: 0.875rem;
@@ -157,7 +171,7 @@ function back() {
             font-size: 1.25rem;
             flex-shrink: 0;
 
-            @include mq(small) {
+            @include mq(medium) {
                @include width-height(1.22881rem, 1.22881rem);
                font-size: 0.875rem;
                border: 1.192px solid var(--white-100);
@@ -230,6 +244,18 @@ function back() {
    }
 
    ::v-deep(.accent) {
+
+      font-size: 3rem;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 110%; /* 3.91875rem */
+      letter-spacing: 0.03rem;
+
+      @include mq(large) {
+      font-size: 2rem; 
+      letter-spacing: 0.02rem;
+   }
+
       @include mq(small) {
          font-size: 1.25rem;
          letter-spacing: 0.0125rem;

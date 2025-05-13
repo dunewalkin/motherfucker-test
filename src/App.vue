@@ -47,12 +47,16 @@ function toggleLocale() {
    .lang-buttons-desktop { display: flex; gap: 0.62rem; }
    .lang-button-mobile  { display: none; }
 
-   @include mq(small) {
+   @include mq(medium) {
       .lang-buttons-desktop { display: none; }
       .lang-button-mobile  { display: block; }
 
-      @include position(absolute, 2.5rem, 1.25rem, auto, auto);
+      @include position(absolute, 3.55rem, 2.12rem, auto, auto);
       transform: none;
+   }
+
+   @include mq(small) {
+      @include position(absolute, 2.5rem, 1.25rem, auto, auto);
    }
 
    button {
@@ -90,6 +94,11 @@ function toggleLocale() {
 .logo-wrapper {
    @include position(absolute, 3.13rem, auto, auto, 2.12rem);
    @include width-height(18.25rem, 5.75856rem);
+   z-index: 10;
+
+   @include mq(large) {
+      @include width-height(13rem, auto);
+   }
 
    @include mq(small) {
       @include position(absolute, 2.5rem, auto, auto, 1.25rem);

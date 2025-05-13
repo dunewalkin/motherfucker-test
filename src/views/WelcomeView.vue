@@ -28,63 +28,106 @@ function clearInput() {
 </script>
 
 <template>
-  <main class="main-wrapper">
-    <section class="welcome">
-      <div class="welcome-container">
-        <h1 class="header-xl" v-html="$t('welcome.title')"></h1>
-        <div class="input-with-button">
-         <div class="input-wrapper">
-            <button 
-               v-if="userName.length > 0"
-               class="clear-btn"
-               @click="clearInput">
-               <img src="/icons/clear-icon.svg" alt="Clear icon">
-            </button>
-            <input
-            v-model="userName"
-            :class="['welcome-input', { 'error': isInputError }]"
-            type="text"
-            :placeholder="$t('welcome.placeholder')"
-            @input="handleInputChange"
-            >
-         </div>
-           
-          <button
-            :class="['round-btn-next', { 'error': isInputError }]"
-            @click="startQuiz"
-          ></button>
-        </div>
-        <div class="input-wrapper">
-    <div
-      class="custom-input"
-      contenteditable
-      ref="editable"
-      @input="onCustomInput"
-      @focus="isFocused = true"
-      @blur="isFocused = false"
-    ></div>
-    <span
-      v-if="isFocused"
-      class="custom-caret"
-      :style="{ left: caretLeft + 'px' }"
-    ></span>
-  </div>
-      </div>
-    </section>
-  </main>
+   <main class="main-wrapper">
+      <div class="container">
+         <section class="welcome-wrapper">
+            <div class="welcome">
+               <h1 class="header-xl" v-html="$t('welcome.title')"></h1>
+               <div class="input-with-button">
+                  <div class="input-wrapper">
+                     <button 
+                        v-if="userName.length > 0"
+                        class="clear-btn"
+                        @click="clearInput">
+                        <img src="/icons/clear-icon.svg" alt="Clear icon">
+                     </button>
+                     <input
+                     v-model="userName"
+                     :class="['welcome-input', { 'error': isInputError }]"
+                     type="text"
+                     :placeholder="$t('welcome.placeholder')"
+                     @input="handleInputChange"
+                     >
+                  </div>
+                  
+                  <button
+                     :class="['round-btn-next', { 'error': isInputError }]"
+                     @click="startQuiz"
+                  ></button>
+               </div>
+               <div class="input-wrapper">
+                  <div
+                     class="custom-input"
+                     contenteditable
+                     ref="editable"
+                     @input="onCustomInput"
+                     @focus="isFocused = true"
+                     @blur="isFocused = false">
+                  </div>
+                  <span
+                     v-if="isFocused"
+                     class="custom-caret"
+                     :style="{ left: caretLeft + 'px' }">
+                  </span>
+               </div>
+            </div>
+               
+         </section>
+      </div> 
+   </main>
 </template>
 
 
  
 <style lang="scss" scoped>
-.welcome {
+
+.welcome-wrapper {
    display: flex;
    align-items: center;
    justify-content: center;
    padding-inline: 2.06rem;
 
+   padding-bottom: 4rem;
+
+   @include mq(medium) {
+      padding-bottom: 3.5rem;
+   }
+
+   @include mq(small) {
+      padding-bottom: 2.5rem;
+   }
+
+
+   .welcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+      // padding-bottom: 4rem;
+
+      // @include mq(medium) {
+      //    padding-bottom: 3.5rem;
+      // }
+
+      // @include mq(small) {
+      //    padding-bottom: 2.5rem;
+      // }
+
+   // .welcome-container {
+   //    padding-bottom: 4rem;
+
+   //    @include mq(medium) {
+   //       padding-bottom: 3.5rem;
+   //    }
+
+   //    @include mq(small) {
+   //       padding-bottom: 2.5rem;
+   //    }
+   // }
+
    h1 {
-      margin-top: 10rem;
       max-width: 63rem;
       text-align: center;
    }
@@ -95,7 +138,7 @@ function clearInput() {
       @include flexbox(row, center, center, 0.62rem);
 
       @include mq(small) {
-         margin-block: 5rem;
+         margin-top: 4.5rem;
          @include flexbox(column, center, center, 0.62rem);
       }
 
@@ -132,7 +175,6 @@ function clearInput() {
 
    .welcome-input {
       width: 100%;
-      //  max-width: 31rem;
       appearance: none;
       border: none;
       outline: none;

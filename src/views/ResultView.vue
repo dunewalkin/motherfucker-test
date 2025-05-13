@@ -74,104 +74,103 @@ async function copyResultLink() {
 
 
 <template>
-  <main class="result-wrapper">
-    <div class="bg-under"></div>
-    <div class="bg-pic"></div>
+   <main class="main-wrapper result-section">
+      <div class="bg-under"></div>
+      <div class="bg-pic"></div>
 
-    <div v-if="linkCopied" class="message-wrapper">
-      <div class="message-container">
-         <span v-html="$t('message.copied')"></span>
-         <svg class="pseudo-part" xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 18 21" fill="none">
-            <path d="M16.9865 20.1846C11.7865 20.9846 6.65313 18.1212 4.98646 16.2879C6.70433 12.1914 -3.90146 2.24186 3.09854 2.24148C4.71715 2.24148 6.09961 -1.9986 11.9865 1.1846C12.0077 2.47144 11.9865 6.92582 11.9865 7.6842C11.9865 18.1842 17.9865 19.5813 16.9865 20.1846Z" fill="#448AF7"/>
-         </svg>     
-      </div>
-      <span v-html="$t('message.read')"></span>
-   </div>
- 
-
-    <div class="result-container">
-      <div class="result">
-        <h1 class="header-l" v-html="result"></h1>
-      </div>
-
-     
-
-      <div class="links-wrapper">
-        <ul class="links-list">
-
-         <li>
-            <a href="#">
-               <div class="link-item-wrapper black">
-                  <img src="/icons/google.svg" alt="Google">
+         <div class="result-wrapper container">
+            <div v-if="linkCopied" class="message-wrapper">
+               <div class="message-container">
+                  <span v-html="$t('message.copied')"></span>
+                  <svg class="pseudo-part" xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 18 21" fill="none">
+                     <path d="M16.9865 20.1846C11.7865 20.9846 6.65313 18.1212 4.98646 16.2879C6.70433 12.1914 -3.90146 2.24186 3.09854 2.24148C4.71715 2.24148 6.09961 -1.9986 11.9865 1.1846C12.0077 2.47144 11.9865 6.92582 11.9865 7.6842C11.9865 18.1842 17.9865 19.5813 16.9865 20.1846Z" fill="#448AF7"/>
+                  </svg>     
                </div>
-            </a>
-         </li>
+               <span v-html="$t('message.read')"></span>
+            </div>
+      
 
-         <li>
-            <a href="#">
-               <div class="link-item-wrapper">
-                  <img src="/icons/apple.svg" alt="Apple">
-               </div>
-            </a>
-         </li>
+         <div class="result-container ">
+            <div class="result">
+               <h1 class="header-l" v-html="result"></h1>
+            </div>
 
-         <li>
-            <a href="#">
-               <div class="link-item-wrapper">
-                  <img src="/icons/1bet.svg" alt="1bet">
-               </div>
-            </a>
-         </li>
+            <div class="links-wrapper">
+               <ul class="links-list">
 
-         <li>
-            <button @click="copyResultLink">
-               <div class="link-item-wrapper">
-                  <img
-                     class="link-logo"
-                     :src="linkCopied ? '/icons/copied.svg' : '/icons/share.svg'"
-                     :alt="linkCopied ? 'Copy icon' : 'Share icon'"
-                  />
-               </div>
-            </button>
-         </li>
+                  <li>
+                     <a href="#">
+                        <div class="link-item-wrapper black">
+                           <img src="/icons/google.svg" alt="Google">
+                        </div>
+                     </a>
+                  </li>
 
+                  <li>
+                     <a href="#">
+                        <div class="link-item-wrapper">
+                           <img src="/icons/apple.svg" alt="Apple">
+                        </div>
+                     </a>
+                  </li>
 
-        </ul>
-      </div>
-    </div>
-  </main>
+                  <li>
+                     <a href="#">
+                        <div class="link-item-wrapper">
+                           <img src="/icons/1bet.svg" alt="1bet">
+                        </div>
+                     </a>
+                  </li>
+
+                  <li>
+                     <button @click="copyResultLink">
+                        <div class="link-item-wrapper">
+                           <img
+                              class="link-logo"
+                              :src="linkCopied ? '/icons/copied.svg' : '/icons/share.svg'"
+                              :alt="linkCopied ? 'Copy icon' : 'Share icon'"
+                           />
+                        </div>
+                     </button>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         </div>
+   </main>
 </template>
 <style lang="scss" scoped>
-   .result-wrapper {
-      @include width-height(100%, 100%);
-      min-height: 100vh;
+   .result-section {
       position: relative;
       z-index: 0;
       overflow: hidden;
+
+      .bg-pic {
+         position: absolute;
+         inset: 0;
+         background-image:  url('/images/bg-layer-2.webp');
+         background-repeat: no-repeat;
+         background-size: 53% auto; 
+         background-position: bottom right; 
+         z-index: -2;
+
+         @include mq(small) {
+            background-size: 120% auto; 
+            background-position: bottom left; 
+         }
+      }
+
    }
 
-   .bg-under {
-      position: absolute;
-      inset: 0;
-      background-image: url('/images/bg-layer.webp');
-      background-repeat: no-repeat;
-      background-size: 100% auto; 
-      background-position: bottom center;
-      z-index: -1;
-   }
+   .result-wrapper {
+      width: 100%;
+      height: 100%;
+      padding-bottom: 3rem;
 
-   .bg-pic {
-      position: absolute;
-      inset: 0;
-      background-image:  url('/images/bg-layer-2.webp');
-      background-repeat: no-repeat;
-      background-size: 53% auto; 
-      background-position: bottom right; 
-      z-index: -2;
 
-      @include mq(small) {
-         background-size: 120% auto; 
-         background-position: bottom left; 
+      @include mq(medium) {
+         padding-bottom: 2.8rem;
+
       }
    }
 
@@ -181,14 +180,11 @@ async function copyResultLink() {
       flex-direction: column;
       justify-content: space-between;
       padding-inline: 2.12rem;
-      padding-block: 11rem 6.12rem;
       gap: 3rem;
 
       @include mq(small) {
          flex-direction: column;
-         padding-block: 7.5rem 2.94rem;
          padding-inline: 1rem;
-         min-height: 100vh;
       }
    }
 
@@ -207,6 +203,16 @@ async function copyResultLink() {
    }
 
    ::v-deep(.accent) {
+
+      @include mq(large) {
+         font-size: 2.75rem; 
+         letter-spacing: 0.025rem;
+      }
+
+      @include mq(medium) {
+         font-size: 2rem; 
+         letter-spacing: 0.02rem;
+      }
 
       @include mq(small) {
          font-size: 2rem;
@@ -239,18 +245,6 @@ async function copyResultLink() {
       }
    }
 
-   .link-item-wrapper {
-      width: 20.375rem;
-      height: 5.75rem;
-
-      @include mq(small) {
-         width: 100%;
-         height: 3.125rem;
-      }
-   }
-
-  
-
 
    .message-wrapper {
       position: absolute;
@@ -260,6 +254,19 @@ async function copyResultLink() {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+
+      @include mq(large) {
+         top: auto;
+         right: 36%;
+         bottom: 13rem;
+      }
+
+      @include mq(medium) {
+         width: 9.06rem;
+         top: auto;
+         bottom: 10rem;
+         right: 36%;
+      }
 
       @include mq(small) {
          width: 9.06rem;
@@ -278,7 +285,7 @@ async function copyResultLink() {
          color: rgba(255, 255, 255, 0.60);
          text-align: right;
 
-         @include mq(small) {
+         @include mq(medium) {
             font-size: 0.625rem;
          }
       }
@@ -291,7 +298,7 @@ async function copyResultLink() {
       background: var(--blue-300);
       @include width-height(100%, 3.75rem);
 
-      @include mq(small) {
+      @include mq(medium) {
          padding: 0.4rem 0.75rem;
          @include width-height(100%, 3.82rem);
       }
@@ -307,7 +314,7 @@ async function copyResultLink() {
          display: inline-block;
          text-align: left;
 
-         @include mq(small) {
+         @include mq(medium) {
             font-size: 0.75rem;
             line-height: 135%; /* 1.0125rem */
             letter-spacing: -0.0255rem;

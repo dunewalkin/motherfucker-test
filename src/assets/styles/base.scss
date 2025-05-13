@@ -148,30 +148,9 @@ a {
    }
 }
 
-// .header-m {
-//    font-family: "Montserrat";
-//    font-size: 3rem;
-//    font-style: normal;
-//    font-weight: 900;
-//    line-height: 110%; /* 3.91875rem */
-//    letter-spacing: 0.03rem;   
-//    text-transform: uppercase;
-//    color: var(--white-100);
-
-//    @include mq(large) {
-//       font-size: 2rem; 
-//       letter-spacing: 0.02rem;
-//    }
-
-//    @include mq(small) {
-//       font-size: 1.25rem;
-//       letter-spacing: 0.0125rem;
-//    }
-// }
-
 .header-m {
    font-family: "Montserrat";
-   font-size: clamp(1.25rem, 5vw + 1rem, 3rem); // Динамический font-size
+   font-size: clamp(1.25rem, 5vw + 1rem, 3rem); 
    font-style: normal;
    font-weight: 900;
    line-height: 110%; /* 3.91875rem */
@@ -180,11 +159,11 @@ a {
    color: var(--white-100);
 
    @include mq(large) {
-      font-size: clamp(1.5rem, 4vw + 1rem, 2rem); // Динамический font-size для large
+      font-size: clamp(1.5rem, 4vw + 1rem, 2rem); 
    }
 
    @include mq(small) {
-      font-size: clamp(1rem, 3vw + 1rem, 1.25rem); // Динамический font-size для small
+      font-size: clamp(1rem, 3vw + 1rem, 1.25rem); 
    }
 }
 

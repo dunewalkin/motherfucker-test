@@ -105,28 +105,6 @@ function clearInput() {
       justify-content: center;
    }
 
-      // padding-bottom: 4rem;
-
-      // @include mq(medium) {
-      //    padding-bottom: 3.5rem;
-      // }
-
-      // @include mq(small) {
-      //    padding-bottom: 2.5rem;
-      // }
-
-   // .welcome-container {
-   //    padding-bottom: 4rem;
-
-   //    @include mq(medium) {
-   //       padding-bottom: 3.5rem;
-   //    }
-
-   //    @include mq(small) {
-   //       padding-bottom: 2.5rem;
-   //    }
-   // }
-
    h1 {
       max-width: 63rem;
       text-align: center;

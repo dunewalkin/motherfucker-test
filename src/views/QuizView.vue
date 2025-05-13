@@ -245,20 +245,14 @@ function back() {
 
    ::v-deep(.accent) {
 
-      font-size: 3rem;
-      font-style: normal;
-      font-weight: 900;
-      line-height: 110%; /* 3.91875rem */
-      letter-spacing: 0.03rem;
+      font-size: clamp(1.25rem, 5vw + 1rem, 3rem); 
 
       @include mq(large) {
-      font-size: 2rem; 
-      letter-spacing: 0.02rem;
-   }
+         font-size: clamp(1.5rem, 4vw + 1rem, 2rem); 
+      }
 
       @include mq(small) {
-         font-size: 1.25rem;
-         letter-spacing: 0.0125rem;
+         font-size: clamp(1rem, 3vw + 1rem, 1.25rem); 
       }
    }
    
